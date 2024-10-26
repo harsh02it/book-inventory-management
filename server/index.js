@@ -1,5 +1,6 @@
 const express = require("express");
 const { Pool } = require("pg");
+const { Parser } = require("json2csv");
 
 const app = express();
 const port = 3000;
@@ -90,6 +91,21 @@ app.get("/api/books/search", async (req, res) => {
     res
       .status(500)
       .json({ error: "Failed to search books due to a database error" });
+  }
+});
+
+//Export all books from the inventory
+app.get("/api/books/export", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM Inventory");
+    const json2csvParser = new Parser();
+    const csv = json2csvParser.parse(result.rows);
+    res.header("Content-Type", "text/csv");
+    res.attachment("books.csv");
+    res.send(csv);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to export books" });
   }
 });
 
