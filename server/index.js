@@ -1,8 +1,12 @@
 const express = require("express");
 const { Pool } = require("pg");
 const { Parser } = require("json2csv");
+const cors = require("cors");
 
 const app = express();
+
+app.use(cors({ origin: "http://localhost:5173" }));
+
 const port = 3000;
 
 const pool = new Pool({
