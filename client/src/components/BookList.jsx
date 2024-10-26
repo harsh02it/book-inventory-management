@@ -28,7 +28,7 @@ const BookList = ({ books, onBookDeleted }) => {
 
   return (
     <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4">
-      <h2 className="text-2xl font-bold mb-4 text-white">Book List</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-300">Book List</h2>
       <div className="flex items-center justify-center min-h-screen">
         <div className="col-span-12">
           <div className="overflow-auto lg:overflow-visible">
@@ -41,11 +41,11 @@ const BookList = ({ books, onBookDeleted }) => {
                 <thead className="bg-gray-800 text-gray-500">
                   <tr>
                     <th className="p-3">Title</th>
-                    <th className="p-3 text-left">Author</th>
-                    <th className="p-3 text-left">Genre</th>
-                    <th className="p-3 text-left">Publication Date</th>
-                    <th className="p-3 text-left">ISBN</th>
-                    <th className="p-3 text-left">Actions</th>
+                    <th className="p-3">Author</th>
+                    <th className="p-3">Genre</th>
+                    <th className="p-3">Publication Date</th>
+                    <th className="p-3">ISBN</th>
+                    <th className="p-3">Actions</th>
                   </tr>
                 </thead>
                 <tbody>

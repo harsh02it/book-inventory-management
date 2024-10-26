@@ -5,9 +5,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 const EditBookForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { book } = location.state;
+  const { book } = location.state || {};
 
-  const [updatedBook, setUpdatedBook] = useState(book);
+  const [updatedBook, setUpdatedBook] = useState(
+    book || {
+      title: "",
+      author: "",
+      genre: "",
+      publication_date: "",
+      isbn: "",
+    }
+  );
 
   const handleChange = (e) => {
     setUpdatedBook({ ...updatedBook, [e.target.name]: e.target.value });
@@ -27,15 +35,18 @@ const EditBookForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Edit Book</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-gray-900 p-6 rounded-lg shadow-md"
+    >
+      <h2 className="text-2xl font-bold mb-4 text-white">Edit Book</h2>
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={updatedBook.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -44,7 +55,7 @@ const EditBookForm = () => {
         placeholder="Author"
         value={updatedBook.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -53,7 +64,7 @@ const EditBookForm = () => {
         placeholder="Genre"
         value={updatedBook.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -61,7 +72,7 @@ const EditBookForm = () => {
         name="publication_date"
         value={updatedBook.publication_date}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -70,7 +81,7 @@ const EditBookForm = () => {
         placeholder="ISBN"
         value={updatedBook.isbn}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <button

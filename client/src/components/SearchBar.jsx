@@ -26,15 +26,18 @@ const SearchBar = ({ onSearchResults }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Search Books</h2>
+    <form
+      onSubmit={handleSearch}
+      className="bg-gray-900 p-6 rounded-lg shadow-md"
+    >
+      <h2 className="text-2xl font-bold mb-4 text-white">Search Books</h2>
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={searchParams.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
       />
       <input
         type="text"
@@ -42,7 +45,7 @@ const SearchBar = ({ onSearchResults }) => {
         placeholder="Author"
         value={searchParams.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
       />
       <input
         type="text"
@@ -50,7 +53,7 @@ const SearchBar = ({ onSearchResults }) => {
         placeholder="Genre"
         value={searchParams.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
       />
       <button
         type="submit"

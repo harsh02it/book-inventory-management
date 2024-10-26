@@ -35,15 +35,18 @@ const AddBookForm = ({ onBookAdded }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4">Add a New Book</h2>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-gray-900 p-6 rounded-lg shadow-md"
+    >
+      <h2 className="text-2xl font-bold mb-4 text-white">Add a New Book</h2>
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={book.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -52,7 +55,7 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="Author"
         value={book.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -61,7 +64,7 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="Genre"
         value={book.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -69,7 +72,7 @@ const AddBookForm = ({ onBookAdded }) => {
         name="publication_date"
         value={book.publication_date}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <input
@@ -78,7 +81,7 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="ISBN"
         value={book.isbn}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-300 rounded"
+        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <button
