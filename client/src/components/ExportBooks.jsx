@@ -28,8 +28,8 @@ const ExportBooks = () => {
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4">
-      <h2 className="text-2xl font-bold mb-4 text-white">Export Books</h2>
+    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 text-center">
+      <h2 className="text-2xl font-bold mb-4 text-gray-300">Export Books</h2>
       <p className="text-gray-400 mb-4">
         Click the button below to export all book data.
       </p>

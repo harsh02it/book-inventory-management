@@ -58,7 +58,7 @@ const App = () => {
             </Link>
             <Link
               to="/search"
-              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-3 rounded-lg hover:shadow-lg transition"
+              className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
               Search Books
             </Link>

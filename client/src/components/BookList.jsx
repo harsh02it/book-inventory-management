@@ -27,7 +27,7 @@ const BookList = ({ books, onBookDeleted }) => {
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4">
+    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 text-center">
       <h2 className="text-2xl text-center font-bold mb-5 text-gray-300">
         Book List
       </h2>

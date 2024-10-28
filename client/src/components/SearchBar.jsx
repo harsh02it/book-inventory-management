@@ -28,16 +28,16 @@ const SearchBar = ({ onSearchResults }) => {
   return (
     <form
       onSubmit={handleSearch}
-      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4"
+      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 text-center"
     >
-      <h2 className="text-2xl font-bold mb-4 text-white">Search Books</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-300">Search Books</h2>
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={searchParams.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-400"
       />
       <input
         type="text"
@@ -45,7 +45,7 @@ const SearchBar = ({ onSearchResults }) => {
         placeholder="Author"
         value={searchParams.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-400"
       />
       <input
         type="text"
@@ -53,11 +53,11 @@ const SearchBar = ({ onSearchResults }) => {
         placeholder="Genre"
         value={searchParams.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-400"
       />
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-green-400 to-green-600 text-white p-2 rounded-lg hover:shadow-lg transition"
+        className="w-full bg-gradient-to-r from-indigo-400 to-indigo-600 text-white p-2 rounded-lg hover:shadow-lg transition"
       >
         Search
       </button>
