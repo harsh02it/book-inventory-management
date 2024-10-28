@@ -83,7 +83,12 @@ const App = () => {
             />
             <Route
               path="/search"
-              element={<SearchBar onSearchResults={handleSearchResults} />}
+              element={
+                <SearchBar
+                  onSearchResults={handleSearchResults}
+                  onBookDeleted={handleBookDeleted}
+                />
+              }
             />
             <Route path="/edit" element={<EditBookForm />} />
             <Route path="/export" element={<ExportBooks />} />
