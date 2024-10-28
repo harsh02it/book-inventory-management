@@ -43,7 +43,7 @@ const App = () => {
           Book Inventory Management
         </h1>
         <div className="mx-auto">
-          <nav className="mb-4 flex justify-center space-x-4">
+          <nav className="w-3/6 text-center mx-auto mb-4 flex flex-col justify-center space-y-2 sm:w-auto sm:flex-row sm:space-y-0 sm:space-x-4">
             <Link
               to="/"
               className="bg-gradient-to-r from-teal-400 to-teal-600 text-white p-3 rounded-lg hover:shadow-lg transition"
