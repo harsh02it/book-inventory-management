@@ -32,64 +32,117 @@ const BookList = ({ books, onBookDeleted }) => {
         Book List
       </h2>
       <div className="flex items-center justify-center">
-        <div className="col-span-12 w-full overflow-x-auto">
-          {" "}
-          <div className="min-w-full">
-            {books.length === 0 ? (
-              <p className="text-gray-400">
-                No books available in the database.
-              </p>
-            ) : (
-              <table className="table text-gray-400 border-separate border-spacing-y-4 w-full">
-                {" "}
-                <thead className="bg-gray-800 text-gray-500">
-                  <tr>
-                    <th className="p-3 rounded-l-xl">Title</th>
-                    <th className="p-3">Author</th>
-                    <th className="p-3">Genre</th>
-                    <th className="p-3">Publication Date</th>
-                    <th className="p-3">ISBN</th>
-                    <th className="p-3 rounded-r-xl">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {books.map((book) => (
-                    <tr key={book.entry_id} className="bg-gray-800">
-                      <td className="p-3 text-center rounded-l-xl">
-                        {book.title}
-                      </td>
-                      <td className="p-3 text-center">{book.author}</td>
-                      <td className="p-3 text-center">{book.genre}</td>
-                      <td className="p-3 text-center">
-                        {formatDate(book.publication_date)}
-                      </td>
-                      <td className="p-3 text-center">{book.isbn}</td>
-                      <td className="p-3 text-center rounded-r-xl">
-                        <a
-                          onClick={() => handleEdit(book)}
-                          href="#"
-                          className="text-gray-400 hover:text-gray-100 mx-2"
-                        >
-                          <i className="material-icons-outlined text-xl">
-                            edit
-                          </i>
-                        </a>
-                        <a
-                          onClick={() => handleDelete(book.entry_id)}
-                          href="#"
-                          className="text-gray-400 hover:text-gray-100 ml-2"
-                        >
-                          <i className="material-icons-round text-xl">
-                            delete_outline
-                          </i>
-                        </a>
-                      </td>
+        <div className="col-span-12 w-full overflow-hidden">
+          {books.length === 0 ? (
+            <p className="text-gray-400">No books available in the database.</p>
+          ) : (
+            <div className="overflow-hidden">
+              {/* Responsive rendering based on screen size */}
+              <div className="hidden min-[815px]:block">
+                {/* Table format for larger screens */}
+                <table className="table text-gray-400 border-separate border-spacing-y-4 w-full">
+                  <thead className="bg-gray-800 text-gray-500">
+                    <tr>
+                      <th className="md:max-lg:px-1 p-3 rounded-l-xl">Title</th>
+                      <th className="md:max-lg:px-1 p-3">Author</th>
+                      <th className="md:max-lg:px-1 p-3">Genre</th>
+                      <th className="md:max-lg:px-1 p-3">Publication Date</th>
+                      <th className="md:max-lg:px-1 p-3">ISBN</th>
+                      <th className="md:max-lg:px-1 p-3 rounded-r-xl">
+                        Actions
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </div>
+                  </thead>
+                  <tbody>
+                    {books.map((book) => (
+                      <tr key={book.entry_id} className="bg-gray-800">
+                        <td className="md:max-lg:px-1 p-3 text-center rounded-l-xl">
+                          {book.title}
+                        </td>
+                        <td className="md:max-lg:px-1 p-3 text-center">
+                          {book.author}
+                        </td>
+                        <td className="md:max-lg:px-1 p-3 text-center">
+                          {book.genre}
+                        </td>
+                        <td className="md:max-lg:px-1 p-3 text-center">
+                          {formatDate(book.publication_date)}
+                        </td>
+                        <td className="md:max-lg:px-1 p-3 text-center">
+                          {book.isbn}
+                        </td>
+                        <td className="md:max-lg:px-1 p-3 text-center rounded-r-xl">
+                          <a
+                            onClick={() => handleEdit(book)}
+                            href="#"
+                            className="text-gray-400 hover:text-gray-100 mx-2"
+                          >
+                            <i className="material-icons-outlined text-xl">
+                              edit
+                            </i>
+                          </a>
+                          <a
+                            onClick={() => handleDelete(book.entry_id)}
+                            href="#"
+                            className="text-gray-400 hover:text-gray-100 ml-2"
+                          >
+                            <i className="material-icons-round text-xl">
+                              delete_outline
+                            </i>
+                          </a>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Inline format for smaller screens */}
+              <div className="min-[815px]:hidden">
+                {books.map((book) => (
+                  <div
+                    key={book.entry_id}
+                    className="bg-gray-800 p-4 mb-4 rounded-lg"
+                  >
+                    <p className="text-gray-300">
+                      <strong>Title:</strong> {book.title}
+                    </p>
+                    <p className="text-gray-300">
+                      <strong>Author:</strong> {book.author}
+                    </p>
+                    <p className="text-gray-300">
+                      <strong>Genre:</strong> {book.genre}
+                    </p>
+                    <p className="text-gray-300">
+                      <strong>Publication Date:</strong>{" "}
+                      {formatDate(book.publication_date)}
+                    </p>
+                    <p className="text-gray-300">
+                      <strong>ISBN:</strong> {book.isbn}
+                    </p>
+                    <div className="flex justify-center mt-2">
+                      <a
+                        onClick={() => handleEdit(book)}
+                        href="#"
+                        className="text-gray-400 hover:text-gray-100 mx-2"
+                      >
+                        <i className="material-icons-outlined text-xl">edit</i>
+                      </a>
+                      <a
+                        onClick={() => handleDelete(book.entry_id)}
+                        href="#"
+                        className="text-gray-400 hover:text-gray-100 ml-2"
+                      >
+                        <i className="material-icons-round text-xl">
+                          delete_outline
+                        </i>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
