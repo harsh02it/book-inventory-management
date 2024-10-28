@@ -28,7 +28,7 @@ const SearchBar = ({ onSearchResults }) => {
   return (
     <form
       onSubmit={handleSearch}
-      className="bg-gray-900 p-6 rounded-lg shadow-md"
+      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4"
     >
       <h2 className="text-2xl font-bold mb-4 text-white">Search Books</h2>
       <input
@@ -57,7 +57,7 @@ const SearchBar = ({ onSearchResults }) => {
       />
       <button
         type="submit"
-        className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition"
+        className="w-full bg-gradient-to-r from-green-400 to-green-600 text-white p-2 rounded-lg hover:shadow-lg transition"
       >
         Search
       </button>

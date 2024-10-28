@@ -37,16 +37,18 @@ const AddBookForm = ({ onBookAdded }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-900 p-6 rounded-lg shadow-md"
+      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4"
     >
-      <h2 className="text-2xl font-bold mb-4 text-white">Add a New Book</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-300 text-center">
+        Add a New Book
+      </h2>
       <input
         type="text"
         name="title"
         placeholder="Title"
         value={book.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-300"
         required
       />
       <input
@@ -55,7 +57,7 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="Author"
         value={book.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-300"
         required
       />
       <input
@@ -64,15 +66,16 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="Genre"
         value={book.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-300"
         required
       />
       <input
         type="date"
         name="publication_date"
+        placeholder="DD-MM-YYYY"
         value={book.publication_date}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-300"
         required
       />
       <input
@@ -81,12 +84,12 @@ const AddBookForm = ({ onBookAdded }) => {
         placeholder="ISBN"
         value={book.isbn}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
+        className="w-full p-2 mb-4 border border-gray-700 rounded bg-gray-800 text-gray-300"
         required
       />
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+        className="w-full bg-gradient-to-r from-teal-400 to-teal-600 text-gray-300 p-2 rounded-lg hover:shadow-lg transition"
       >
         Add Book
       </button>

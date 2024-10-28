@@ -38,33 +38,33 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-r bg-gray-800 p-8">
+      <div className="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen p-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-white">
           Book Inventory Management
         </h1>
         <div className="mx-auto">
-          <nav className="mb-4">
+          <nav className="mb-4 flex justify-center space-x-4">
             <Link
               to="/"
-              className="bg-blue-500 text-white p-2 rounded mr-5 hover:bg-blue-600 transition"
+              className="bg-gradient-to-r from-teal-400 to-teal-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
               Home
             </Link>
             <Link
               to="/add"
-              className="bg-green-500 text-white p-2 rounded mr-5 hover:bg-green-600 transition"
+              className="bg-gradient-to-r from-purple-400 to-purple-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
               Add Book
             </Link>
             <Link
               to="/search"
-              className="bg-yellow-500 text-white p-2 rounded mr-5 hover:bg-yellow-600 transition"
+              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
               Search Books
             </Link>
             <Link
               to="/export"
-              className="bg-purple-500 text-white p-2 rounded hover:bg-purple-600 transition"
+              className="bg-gradient-to-r from-pink-400 to-pink-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
               Export Books
             </Link>

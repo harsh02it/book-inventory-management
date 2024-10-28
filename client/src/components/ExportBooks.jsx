@@ -28,14 +28,14 @@ const ExportBooks = () => {
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-md">
+    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4">
       <h2 className="text-2xl font-bold mb-4 text-white">Export Books</h2>
       <p className="text-gray-400 mb-4">
         Click the button below to export all book data.
       </p>
       <button
         onClick={handleExport}
-        className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600 transition"
+        className="w-full bg-gradient-to-r from-pink-400 to-pink-600 text-white p-2 rounded-lg hover:shadow-lg transition"
       >
         Export All Books
       </button>

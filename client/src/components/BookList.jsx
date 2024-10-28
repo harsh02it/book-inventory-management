@@ -28,43 +28,49 @@ const BookList = ({ books, onBookDeleted }) => {
 
   return (
     <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4">
-      <h2 className="text-2xl font-bold mb-4 text-gray-300">Book List</h2>
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="col-span-12">
-          <div className="overflow-auto lg:overflow-visible">
+      <h2 className="text-2xl text-center font-bold mb-5 text-gray-300">
+        Book List
+      </h2>
+      <div className="flex items-center justify-center">
+        <div className="col-span-12 w-full overflow-x-auto">
+          {" "}
+          <div className="min-w-full">
             {books.length === 0 ? (
               <p className="text-gray-400">
                 No books available in the database.
               </p>
             ) : (
-              <table className="table text-gray-400 border-separate space-y-6 text-sm">
+              <table className="table text-gray-400 border-separate border-spacing-y-4 w-full">
+                {" "}
                 <thead className="bg-gray-800 text-gray-500">
                   <tr>
-                    <th className="p-3">Title</th>
+                    <th className="p-3 rounded-l-xl">Title</th>
                     <th className="p-3">Author</th>
                     <th className="p-3">Genre</th>
                     <th className="p-3">Publication Date</th>
                     <th className="p-3">ISBN</th>
-                    <th className="p-3">Actions</th>
+                    <th className="p-3 rounded-r-xl">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {books.map((book) => (
                     <tr key={book.entry_id} className="bg-gray-800">
-                      <td className="p-3">{book.title}</td>
-                      <td className="p-3">{book.author}</td>
-                      <td className="p-3">{book.genre}</td>
-                      <td className="p-3">
+                      <td className="p-3 text-center rounded-l-xl">
+                        {book.title}
+                      </td>
+                      <td className="p-3 text-center">{book.author}</td>
+                      <td className="p-3 text-center">{book.genre}</td>
+                      <td className="p-3 text-center">
                         {formatDate(book.publication_date)}
                       </td>
-                      <td className="p-3">{book.isbn}</td>
-                      <td className="p-3">
+                      <td className="p-3 text-center">{book.isbn}</td>
+                      <td className="p-3 text-center rounded-r-xl">
                         <a
                           onClick={() => handleEdit(book)}
                           href="#"
                           className="text-gray-400 hover:text-gray-100 mx-2"
                         >
-                          <i className="material-icons-outlined text-base">
+                          <i className="material-icons-outlined text-xl">
                             edit
                           </i>
                         </a>
@@ -73,7 +79,7 @@ const BookList = ({ books, onBookDeleted }) => {
                           href="#"
                           className="text-gray-400 hover:text-gray-100 ml-2"
                         >
-                          <i className="material-icons-round text-base">
+                          <i className="material-icons-round text-xl">
                             delete_outline
                           </i>
                         </a>
@@ -86,31 +92,6 @@ const BookList = ({ books, onBookDeleted }) => {
           </div>
         </div>
       </div>
-      <style>
-        {`
-          .table {
-            border-spacing: 0 15px;
-          }
-
-          i {
-            font-size: 1.5rem !important;
-          }
-
-          .table tr {
-            border-radius: 20px;
-          }
-
-          tr td:nth-child(n+6),
-          tr th:nth-child(n+6) {
-            border-radius: 0 .625rem .625rem 0;
-          }
-
-          tr td:nth-child(1),
-          tr th:nth-child(1) {
-            border-radius: .625rem 0 0 .625rem;
-          }
-        `}
-      </style>
     </div>
   );
 };
