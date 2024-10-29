@@ -33,7 +33,9 @@ app.post("/api/books", async (req, res) => {
   const { title, author, genre, publication_date, isbn } = req.body;
   try {
     const result = await pool.query(
-      "INSERT INTO Inventory (title, author, genre, publication_date, isbn) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+      `INSERT INTO Inventory (title, author, genre, publication_date, isbn) 
+       VALUES ($1, $2, $3, TO_DATE($4, 'YYYY-MM-DD'), $5) 
+       RETURNING *`,
       [title, author, genre, publication_date, isbn]
     );
     res.status(201).json(result.rows[0]);
@@ -46,7 +48,10 @@ app.post("/api/books", async (req, res) => {
 //Get all books from the inventory
 app.get("/api/books", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM Inventory");
+    const result = await pool.query(
+      `SELECT entry_id, title, author, genre, TO_CHAR(publication_date, 'YYYY-MM-DD') AS publication_date, isbn 
+       FROM Inventory`
+    );
     res.status(200).json(result.rows);
   } catch (err) {
     console.error(err);
@@ -118,7 +123,7 @@ app.get("/api/books/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const result = await pool.query(
-      "SELECT * FROM Inventory WHERE entry_id = $1",
+      "SELECT entry_id, title, author, genre, TO_CHAR(publication_date, 'YYYY-MM-DD') AS publication_date, isbn FROM Inventory WHERE entry_id = $1",
       [id]
     );
     if (result.rows.length === 0) {
@@ -137,7 +142,9 @@ app.put("/api/books/:id", async (req, res) => {
   const { title, author, genre, publication_date, isbn } = req.body;
   try {
     const result = await pool.query(
-      "UPDATE Inventory SET title = $1, author = $2, genre = $3, publication_date = $4, isbn = $5 WHERE entry_id = $6 RETURNING *",
+      `UPDATE Inventory 
+       SET title = $1, author = $2, genre = $3, publication_date = TO_DATE($4, 'YYYY-MM-DD'), isbn = $5 
+       WHERE entry_id = $6 RETURNING *`,
       [title, author, genre, publication_date, isbn, id]
     );
     if (result.rows.length === 0) {
