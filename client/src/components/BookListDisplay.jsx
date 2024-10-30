@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const BookListDisplay = ({ books, onBookDeleted }) => {
+const BookListDisplay = ({ books, onBookDeleted, handleDeleteFeedback }) => {
   const navigate = useNavigate();
 
   const handleEdit = (book) => {
@@ -12,8 +13,10 @@ const BookListDisplay = ({ books, onBookDeleted }) => {
     try {
       await axios.delete(`http://localhost:3000/api/books/${id}`);
       onBookDeleted(id);
+      handleDeleteFeedback("Book deleted successfully!");
     } catch (error) {
       console.error("Error deleting book:", error);
+      handleDeleteFeedback("Failed to delete book. Please try again.");
     }
   };
 

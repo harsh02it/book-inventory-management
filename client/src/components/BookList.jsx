@@ -9,10 +9,18 @@ const BookList = ({ books, onBookDeleted }) => {
     genre: "",
     publication_date: "",
   });
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
+  };
+
+  const handleDeleteFeedback = (message) => {
+    setFeedbackMessage(message);
+    setTimeout(() => {
+      setFeedbackMessage("");
+    }, 3000);
   };
 
   const filteredBooks = books.filter((book) => {
@@ -34,6 +42,9 @@ const BookList = ({ books, onBookDeleted }) => {
         Book List
       </h2>
       <BookFilter filters={filters} handleFilterChange={handleFilterChange} />
+      {feedbackMessage && (
+        <p className="text-green-500 mb-4">{feedbackMessage}</p>
+      )}
       <div className="flex items-center justify-center">
         <div className="col-span-12 w-full overflow-hidden">
           {filteredBooks.length === 0 ? (
@@ -42,6 +53,7 @@ const BookList = ({ books, onBookDeleted }) => {
             <BookListDisplay
               books={filteredBooks}
               onBookDeleted={onBookDeleted}
+              handleDeleteFeedback={handleDeleteFeedback}
             />
           )}
         </div>
