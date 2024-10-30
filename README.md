@@ -41,7 +41,10 @@ Follow these instructions to set up and run the project locally.
    cd book-inventory-management
    ```
 
-2. **Server Setup**
+2. **Database Setup**
+   Please follow the steps mentioned in the documentation folder to setup the database.
+
+3. **Server Setup**
    Navigate to the server directory and install the dependencies.
 
    ```bash
@@ -49,7 +52,7 @@ Follow these instructions to set up and run the project locally.
    npm install
    ```
 
-3. **Client Setup**
+4. **Client Setup**
    Navigate to the client directory and install the dependencies.
 
    ```bash
@@ -57,27 +60,23 @@ Follow these instructions to set up and run the project locally.
    npm install
    ```
 
-4. **Run the Application**
+5. **Run the Application**
    Start the PostgreSQL database service.
 
    In the server folder, run the backend server:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
    In the client folder, run the frontend:
 
    ```bash
-   npm start
+   npm run dev
    ```
 
-   The frontend will be available at [http://localhost:3000](http://localhost:3000), and the backend server will run on [http://localhost:5000](http://localhost:5000).
+   The frontend will be available at [http://localhost:5173](http://localhost:5173), and the backend server will run on [http://localhost:3000](http://localhost:3000).
 
 ## Contributing
 
 Please fork the repository and create a pull request if you’d like to contribute.
-
-## License
-
-This project is licensed under the MIT License.
