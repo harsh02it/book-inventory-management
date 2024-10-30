@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import BookInputField from "./BookInputField";
 
 const EditBookForm = () => {
   const location = useLocation();
@@ -37,51 +38,46 @@ const EditBookForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4"
+      className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 mx-auto max-w-md text-center"
     >
-      <h2 className="text-2xl font-bold mb-4 text-white">Edit Book</h2>
-      <input
+      <h2 className="text-2xl font-bold mb-4 text-gray-300">Edit Book</h2>
+      <BookInputField
         type="text"
         name="title"
         placeholder="Title"
         value={updatedBook.title}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
-      <input
+      <BookInputField
         type="text"
         name="author"
         placeholder="Author"
         value={updatedBook.author}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
-      <input
+      <BookInputField
         type="text"
         name="genre"
         placeholder="Genre"
         value={updatedBook.genre}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
-      <input
+      <BookInputField
         type="date"
         name="publication_date"
         value={updatedBook.publication_date}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
-      <input
+      <BookInputField
         type="text"
         name="isbn"
         placeholder="ISBN"
         value={updatedBook.isbn}
         onChange={handleChange}
-        className="w-full p-2 mb-4 border border-gray-600 rounded bg-gray-700 text-white"
         required
       />
       <button

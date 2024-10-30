@@ -7,15 +7,14 @@ const ExportBooks = () => {
       const response = await axios.get(
         "http://localhost:3000/api/books/export",
         {
-          responseType: "blob", // Important for handling binary data
+          responseType: "blob",
         }
       );
 
-      // Create a URL for the blob
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "books.csv"); // Set the file name
+      link.setAttribute("download", "books.csv");
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -28,7 +27,7 @@ const ExportBooks = () => {
   };
 
   return (
-    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 text-center">
+    <div className="bg-gray-900 p-6 rounded-lg shadow-md mt-4 text-center mx-auto max-w-md">
       <h2 className="text-2xl font-bold mb-4 text-gray-300">Export Books</h2>
       <p className="text-gray-400 mb-4">
         Click the button below to export all book data.

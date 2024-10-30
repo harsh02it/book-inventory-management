@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import axios from "axios";
 import AddBookForm from "./components/AddBookForm";
 import BookList from "./components/BookList";
-import SearchBar from "./components/SearchBar";
 import EditBookForm from "./components/EditBookForm";
 import ExportBooks from "./components/ExportBooks";
 
 const App = () => {
   const [books, setBooks] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -26,10 +24,6 @@ const App = () => {
 
   const handleBookAdded = (newBook) => {
     setBooks((prevBooks) => [...prevBooks, newBook]);
-  };
-
-  const handleSearchResults = (results) => {
-    setSearchResults(results);
   };
 
   const handleBookDeleted = (id) => {
@@ -57,12 +51,6 @@ const App = () => {
               Add Book
             </Link>
             <Link
-              to="/search"
-              className="bg-gradient-to-r from-indigo-400 to-indigo-600 text-white p-3 rounded-lg hover:shadow-lg transition"
-            >
-              Search Books
-            </Link>
-            <Link
               to="/export"
               className="bg-gradient-to-r from-pink-400 to-pink-600 text-white p-3 rounded-lg hover:shadow-lg transition"
             >
@@ -80,15 +68,6 @@ const App = () => {
             <Route
               path="/add"
               element={<AddBookForm onBookAdded={handleBookAdded} />}
-            />
-            <Route
-              path="/search"
-              element={
-                <SearchBar
-                  onSearchResults={handleSearchResults}
-                  onBookDeleted={handleBookDeleted}
-                />
-              }
             />
             <Route path="/edit" element={<EditBookForm />} />
             <Route path="/export" element={<ExportBooks />} />
