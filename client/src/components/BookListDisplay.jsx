@@ -17,14 +17,6 @@ const BookListDisplay = ({ books, onBookDeleted }) => {
     }
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${day}-${month}-${year}`;
-  };
-
   return (
     <div className="overflow-hidden">
       {/* Table format for larger screens */}
@@ -51,7 +43,7 @@ const BookListDisplay = ({ books, onBookDeleted }) => {
                 </td>
                 <td className="md:max-lg:px-1 p-3 text-center">{book.genre}</td>
                 <td className="md:max-lg:px-1 p-3 text-center">
-                  {formatDate(book.publication_date)}
+                  {book.publication_date}
                 </td>
                 <td className="md:max-lg:px-1 p-3 text-center">{book.isbn}</td>
                 <td className="md:max-lg:px-1 p-3 text-center rounded-r-xl">
@@ -92,8 +84,7 @@ const BookListDisplay = ({ books, onBookDeleted }) => {
               <strong>Genre:</strong> {book.genre}
             </p>
             <p className="text-gray-300">
-              <strong>Publication Date:</strong>{" "}
-              {formatDate(book.publication_date)}
+              <strong>Publication Date:</strong> {book.publication_date}
             </p>
             <p className="text-gray-300">
               <strong>ISBN:</strong> {book.isbn}

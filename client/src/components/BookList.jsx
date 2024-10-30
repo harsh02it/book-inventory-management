@@ -37,7 +37,7 @@ const BookList = ({ books, onBookDeleted }) => {
       <div className="flex items-center justify-center">
         <div className="col-span-12 w-full overflow-hidden">
           {filteredBooks.length === 0 ? (
-            <p className="text-gray-400">No books available in the database.</p>
+            <p className="text-gray-300">No books available in the database.</p>
           ) : (
             <BookListDisplay
               books={filteredBooks}

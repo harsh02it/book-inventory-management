@@ -70,6 +70,7 @@ const EditBookForm = () => {
         name="publication_date"
         value={updatedBook.publication_date}
         onChange={handleChange}
+        placeholder="Publication Date"
         required
       />
       <BookInputField

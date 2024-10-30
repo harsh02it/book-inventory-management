@@ -90,9 +90,9 @@ const AddBookForm = ({ onBookAdded }) => {
       <BookInputField
         type="date"
         name="publication_date"
-        placeholder="Publication Date"
         value={book.publication_date}
         onChange={handleChange}
+        placeholder="Publication Date"
       />
       <BookInputField
         type="text"
